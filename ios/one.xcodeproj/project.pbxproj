@@ -8,34 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */; };
-		C5826E6B2F92E83A006B4A3F /* libgodot-cpp.ios.template_release.universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E6A2F92E83A006B4A3F /* libgodot-cpp.ios.template_release.universal.a */; };
 		C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E6C2F92E859006B4A3F /* UIKit.framework */; };
+		C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5826E562F92E52B006B4A3F /* one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
-		C5826E6A2F92E83A006B4A3F /* libgodot-cpp.ios.template_release.universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgodot-cpp.ios.template_release.universal.a"; sourceTree = "<group>"; };
 		C5826E6C2F92E859006B4A3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgodot-cpp.ios.template_release.universal.a"; path = "../godot-cpp/bin/libgodot-cpp.ios.template_release.universal.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C5826E5B2F92E52B006B4A3F /* Exceptions for "one" folder in "one" target */ = {
+		C587BCC72F94030100E25280 /* Exceptions for "src" folder in "one" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			privateHeaders = (
+			membershipExceptions = (
 				one.h,
+				one.mm,
 			);
 			target = C5826E552F92E52B006B4A3F /* one */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C5826E582F92E52B006B4A3F /* one */ = {
+		C587BCC42F94030100E25280 /* src */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C5826E5B2F92E52B006B4A3F /* Exceptions for "one" folder in "one" target */,
+				C587BCC72F94030100E25280 /* Exceptions for "src" folder in "one" target */,
 			);
-			path = one;
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,8 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */,
 				C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */,
-				C5826E6B2F92E83A006B4A3F /* libgodot-cpp.ios.template_release.universal.a in Frameworks */,
 				C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +58,7 @@
 		C5826E4C2F92E52B006B4A3F = {
 			isa = PBXGroup;
 			children = (
-				C5826E582F92E52B006B4A3F /* one */,
+				C587BCC42F94030100E25280 /* src */,
 				C5826E632F92E64A006B4A3F /* Frameworks */,
 				C5826E572F92E52B006B4A3F /* Products */,
 			);
@@ -74,8 +75,8 @@
 		C5826E632F92E64A006B4A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */,
 				C5826E6C2F92E859006B4A3F /* UIKit.framework */,
-				C5826E6A2F92E83A006B4A3F /* libgodot-cpp.ios.template_release.universal.a */,
 				C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */,
 			);
 			name = Frameworks;
@@ -106,9 +107,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C5826E582F92E52B006B4A3F /* one */,
 			);
 			name = one;
 			packageProductDependencies = (
@@ -198,6 +196,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../godot-cpp/bin",
 				);
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
@@ -239,6 +238,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../godot-cpp/bin",
 				);
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
@@ -308,8 +308,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/include/**",
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include/**",
+					"../godot-cpp/include",
+					"../godot-cpp/gen/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
@@ -372,8 +372,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/include/**",
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include/**",
+					"../godot-cpp/include",
+					"../godot-cpp/gen/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
