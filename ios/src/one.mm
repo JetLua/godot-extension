@@ -34,8 +34,6 @@
             }
           }
         }
-      } else {
-        anchor = [UIApplication sharedApplication].keyWindow;
       }
     #endif
   };
@@ -87,6 +85,86 @@ namespace godot {
   One::One() {}
   One::~One() {}
 
+  void One::open_review(const String &app_id) {
+    CharString id_cs = app_id.utf8();
+    NSString *ns_id = [NSString stringWithUTF8String:id_cs.get_data()];
+
+    NSString *urlString = [NSString stringWithFormat:@"https://apps.apple.com/app/id%@?action=write-review", ns_id];
+
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+      #if TARGET_OS_OSX
+        [[NSWorkspace sharedWorkspace] openURL:url];
+      #else
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+          [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        }
+      #endif
+    });
+  }
+
+  void One::share(const String &text) {
+    CharString text_cs = text.utf8();
+    NSString *ns_text = [NSString stringWithUTF8String:text_cs.get_data()];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+      #if TARGET_OS_OSX
+        // macOS 分享
+        NSArray *items = @[ns_text];
+        NSSharingServicePicker *picker = [[NSSharingServicePicker alloc] initWithItems:items];
+
+        NSWindow *window = [NSApplication sharedApplication].keyWindow;
+        if (!window) {
+          window = [NSApplication sharedApplication].windows.firstObject;
+        }
+
+        if (window) {
+          [picker showRelativeToRect:window.contentView.bounds ofView:window.contentView preferredEdge:NSRectEdgeMinY];
+        }
+      #else
+
+        // iOS 分享
+        NSArray *items = @[ns_text];
+
+        UIActivityViewController *vc = [[UIActivityViewController alloc]
+          initWithActivityItems:items
+          applicationActivities:nil
+        ];
+
+        UIWindow *window = nil;
+
+        if (@available(iOS 13.0, *)) {
+          for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive) {
+              UIWindowScene *ws = (UIWindowScene *)scene;
+              for (UIWindow *w in ws.windows) {
+                if (w.isKeyWindow) {
+                  window = w;
+                  break;
+                }
+              }
+            }
+          }
+        }
+
+        UIViewController *root = window.rootViewController;
+
+        // iPad 适配（用更现代写法）
+        if (vc.popoverPresentationController) {
+          vc.popoverPresentationController.sourceView = root.view;
+          vc.popoverPresentationController.sourceRect = CGRectMake(
+            root.view.bounds.size.width/2,
+            root.view.bounds.size.height/2,
+            1, 1
+          );
+        }
+
+        [root presentViewController:vc animated:YES completion:nil];
+      #endif
+    });
+  }
+
   bool One::start_session(const String &url, const String &scheme) {
     // 更安全的字符串转换
     CharString url_cs = url.utf8();
@@ -104,7 +182,7 @@ namespace godot {
       g_delegate = [[AuthDelegate alloc] init];
     }
 
-      // ⭐ 强引用 session
+    // ⭐ 强引用 session
     g_session = [[ASWebAuthenticationSession alloc]
       initWithURL: authURL
       callbackURLScheme: ns_scheme
@@ -118,7 +196,7 @@ namespace godot {
             this->emit_signal("auth_failed", String(errorString.UTF8String));
           }
 
-            // ⭐ 用完释放（重要）
+          // ⭐ 用完释放（重要）
           g_session = nil;
         });
       }
@@ -139,6 +217,8 @@ namespace godot {
   }
 
   void One::_bind_methods() {
+    ClassDB::bind_method(D_METHOD("share", "text"), &One::share);
+    ClassDB::bind_method(D_METHOD("open_review"), &One::open_review);
     ClassDB::bind_method(D_METHOD("start_session", "url", "scheme"), &One::start_session);
     ADD_SIGNAL(MethodInfo("auth_completed", PropertyInfo(Variant::STRING, "callback_url")));
     ADD_SIGNAL(MethodInfo("auth_failed", PropertyInfo(Variant::STRING, "error_message")));

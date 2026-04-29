@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C53454282F964668008F46F5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53454272F964668008F46F5 /* StoreKit.framework */; };
 		C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */; };
 		C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E6C2F92E859006B4A3F /* UIKit.framework */; };
 		C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C53454272F964668008F46F5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		C5826E562F92E52B006B4A3F /* one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
 		C5826E6C2F92E859006B4A3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53454282F964668008F46F5 /* StoreKit.framework in Frameworks */,
 				C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */,
 				C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */,
 				C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */,
@@ -75,6 +78,7 @@
 		C5826E632F92E64A006B4A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C53454272F964668008F46F5 /* StoreKit.framework */,
 				C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */,
 				C5826E6C2F92E859006B4A3F /* UIKit.framework */,
 				C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */,
