@@ -85,8 +85,8 @@ namespace godot {
   One::One() {}
   One::~One() {}
 
-  void One::open_review(const String &app_id) {
-    CharString id_cs = app_id.utf8();
+  void One::open_review(const String &aid) {
+    CharString id_cs = aid.utf8();
     NSString *ns_id = [NSString stringWithUTF8String:id_cs.get_data()];
 
     NSString *urlString = [NSString stringWithFormat:@"https://apps.apple.com/app/id%@?action=write-review", ns_id];

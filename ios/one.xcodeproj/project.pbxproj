@@ -10,7 +10,9 @@
 		C53454282F964668008F46F5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53454272F964668008F46F5 /* StoreKit.framework */; };
 		C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */; };
 		C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5826E6C2F92E859006B4A3F /* UIKit.framework */; };
-		C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */; };
+		C5A385FF2FA34EDA00C51D1F /* libgodot-cpp.ios.template_release.x86_64.simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A385FB2FA3410B00C51D1F /* libgodot-cpp.ios.template_release.x86_64.simulator.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C5A386002FA34F4F00C51D1F /* libgodot-cpp.ios.template_release.arm64.simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A385F42FA33B9700C51D1F /* libgodot-cpp.ios.template_release.arm64.simulator.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C5A386012FA350C400C51D1F /* libgodot-cpp.ios.template_release.universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		C5826E642F92E64A006B4A3F /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
 		C5826E6C2F92E859006B4A3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgodot-cpp.ios.template_release.universal.a"; path = "../godot-cpp/bin/libgodot-cpp.ios.template_release.universal.a"; sourceTree = "<group>"; };
+		C5A385F42FA33B9700C51D1F /* libgodot-cpp.ios.template_release.arm64.simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgodot-cpp.ios.template_release.arm64.simulator.a"; path = "../godot-cpp/bin/libgodot-cpp.ios.template_release.arm64.simulator.a"; sourceTree = "<group>"; };
+		C5A385FB2FA3410B00C51D1F /* libgodot-cpp.ios.template_release.x86_64.simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgodot-cpp.ios.template_release.x86_64.simulator.a"; path = "../godot-cpp/bin/libgodot-cpp.ios.template_release.x86_64.simulator.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -48,8 +52,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A386012FA350C400C51D1F /* libgodot-cpp.ios.template_release.universal.a in Frameworks */,
+				C5A386002FA34F4F00C51D1F /* libgodot-cpp.ios.template_release.arm64.simulator.a in Frameworks */,
 				C53454282F964668008F46F5 /* StoreKit.framework in Frameworks */,
-				C587BCC92F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a in Frameworks */,
+				C5A385FF2FA34EDA00C51D1F /* libgodot-cpp.ios.template_release.x86_64.simulator.a in Frameworks */,
 				C5826E6D2F92E859006B4A3F /* UIKit.framework in Frameworks */,
 				C5826E652F92E64A006B4A3F /* AuthenticationServices.framework in Frameworks */,
 			);
@@ -78,6 +84,8 @@
 		C5826E632F92E64A006B4A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5A385FB2FA3410B00C51D1F /* libgodot-cpp.ios.template_release.x86_64.simulator.a */,
+				C5A385F42FA33B9700C51D1F /* libgodot-cpp.ios.template_release.arm64.simulator.a */,
 				C53454272F964668008F46F5 /* StoreKit.framework */,
 				C587BCC82F9403A200E25280 /* libgodot-cpp.ios.template_release.universal.a */,
 				C5826E6C2F92E859006B4A3F /* UIKit.framework */,
@@ -187,11 +195,12 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/include",
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include",
+					"/Users/jet/workspace/godot/one/godot-cpp/include",
+					"/Users/jet/workspace/godot/one/godot-cpp/gen/include",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -211,7 +220,7 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include";
+				USER_HEADER_SEARCH_PATHS = "/Users/jet/workspace/godot/one/godot-cpp/gen/include";
 			};
 			name = Debug;
 		};
@@ -229,11 +238,12 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/include",
-					"/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include",
+					"/Users/jet/workspace/godot/one/godot-cpp/include",
+					"/Users/jet/workspace/godot/one/godot-cpp/gen/include",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -253,7 +263,7 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/jet/workspace/godot/extension/one/godot-cpp/gen/include";
+				USER_HEADER_SEARCH_PATHS = "/Users/jet/workspace/godot/one/godot-cpp/gen/include";
 			};
 			name = Release;
 		};
@@ -315,7 +325,7 @@
 					"../godot-cpp/include",
 					"../godot-cpp/gen/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -379,7 +389,7 @@
 					"../godot-cpp/include",
 					"../godot-cpp/gen/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

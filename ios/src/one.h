@@ -22,6 +22,6 @@ namespace godot {
       ~One();
       bool start_session(const String &url, const String &scheme);
       void share(const String &text);
-      void open_review(const String &app_id);
+      void open_review(const String &aid);
   };
 }
